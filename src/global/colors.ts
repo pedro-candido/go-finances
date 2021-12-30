@@ -3,6 +3,7 @@ const colors = {
   shape: '#fff',
   title: '#363F5F',
   text: '#969CB2',
+  dark_text: '#000',
   background: '#F0F2F5',
   dark: {
     secondary: 'rgba(255,135,44, 0.3)',
