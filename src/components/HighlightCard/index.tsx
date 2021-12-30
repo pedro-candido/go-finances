@@ -1,24 +1,29 @@
 import React from 'react';
-import { Text, View } from 'react-native';
 import { Card } from './style';
 
 interface IHighlightCardProps {
-  icon: string;
+  iconType: 'up' | 'down' | 'total';
   title: string;
   value: string;
   text: string;
 }
 
-const HighlightCard = ({ icon, title, value, text }: IHighlightCardProps) => {
+const icons = {
+  up: 'arrow-up-circle',
+  down: 'arrow-down-circle',
+  total: 'dollar-sign',
+};
+
+const HighlightCard = ({ iconType, title, value, text }: IHighlightCardProps) => {
   return (
-    <Card.Container>
+    <Card.Container type={iconType}>
       <Card.Header>
-        <Card.Title>{title}</Card.Title>
-        <Card.Icon name={icon} />
+        <Card.Title type={iconType}>{title}</Card.Title>
+        <Card.Icon name={icons[iconType]} type={iconType} />
       </Card.Header>
       <Card.Footer>
-        <Card.Amount>{value}</Card.Amount>
-        <Card.LastTransaction>{text}</Card.LastTransaction>
+        <Card.Amount type={iconType}>{value}</Card.Amount>
+        <Card.LastTransaction type={iconType}>{text}</Card.LastTransaction>
       </Card.Footer>
     </Card.Container>
   );

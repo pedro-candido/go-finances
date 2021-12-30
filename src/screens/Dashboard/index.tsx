@@ -19,9 +19,9 @@ const Dashboard = () => {
         </User.Wrapper>
       </Header>
       <HighlightCards>
-        <HighlightCard icon="power" text="Hello World" title="Entrada" value="200.000" />
-        <HighlightCard icon="power" text="Hello World" title="Entrada" value="200.000" />
-        <HighlightCard icon="power" text="Hello World" title="Entrada" value="200.000" />
+        <HighlightCard iconType="up" text="Hello World" title="Entrada" value="200.000" />
+        <HighlightCard iconType="down" text="Hello World" title="Saída" value="200.000" />
+        <HighlightCard iconType="total" text="Hello World" title="Total" value="200.000" />
       </HighlightCards>
     </Container>
   );
