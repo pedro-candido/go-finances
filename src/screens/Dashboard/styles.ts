@@ -2,6 +2,8 @@ import styled from 'styled-components/native';
 import { RFPercentage, RFValue } from 'react-native-responsive-fontsize';
 import { Feather } from '@expo/vector-icons';
 
+import { getStatusBarHeight } from 'react-native-iphone-x-helper';
+
 export const Container = styled.View`
   background-color: ${({ theme }) => theme.colors.background};
 
@@ -11,8 +13,6 @@ export const Container = styled.View`
 export const Header = styled.View`
   height: ${RFPercentage(42)}px;
   background-color: ${({ theme }) => theme.colors.primary};
-  align-items: ${({ theme }) => theme.alignments.center};
-  justify-content: ${({ theme }) => theme.alignments.center};
 
   width: 100%;
 `;
@@ -49,6 +49,8 @@ const UserName = styled.Text`
 `;
 const Wrapper = styled.View`
   width: 100%;
+  margin-top: ${getStatusBarHeight() + RFValue(28)}px;
+
   padding: 0 24px;
   flex-direction: row;
   justify-content: space-between;
@@ -61,7 +63,10 @@ export const HighlightCards = styled.ScrollView.attrs({
   },
   showsHorizontalScrollIndicator: false,
   horizontal: true,
-})``;
+})`
+  position: absolute;
+  top: ${RFPercentage(20)}px;
+`;
 
 export const User = {
   Box,
