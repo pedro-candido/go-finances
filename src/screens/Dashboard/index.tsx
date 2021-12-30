@@ -1,5 +1,7 @@
 import React from 'react';
-import { Container, Header, User, Icon } from './styles';
+import { View } from 'react-native';
+import HighlightCard from '../../components/HighlightCard';
+import { Container, Header, User, Icon, HighlightCards } from './styles';
 
 const Dashboard = () => {
   return (
@@ -16,6 +18,11 @@ const Dashboard = () => {
           <Icon name="power" />
         </User.Wrapper>
       </Header>
+      <HighlightCards>
+        <HighlightCard icon="power" text="Hello World" title="Entrada" value="200.000" />
+        <HighlightCard icon="power" text="Hello World" title="Entrada" value="200.000" />
+        <HighlightCard icon="power" text="Hello World" title="Entrada" value="200.000" />
+      </HighlightCards>
     </Container>
   );
 };

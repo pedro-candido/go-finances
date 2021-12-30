@@ -4,7 +4,8 @@ import { Feather } from '@expo/vector-icons';
 
 export const Container = styled.View`
   background-color: ${({ theme }) => theme.colors.background};
-  flex: 1;
+
+  height: 100%;
 `;
 
 export const Header = styled.View`
@@ -53,6 +54,14 @@ const Wrapper = styled.View`
   justify-content: space-between;
   align-items: center;
 `;
+
+export const HighlightCards = styled.ScrollView.attrs({
+  contentContainerStyle: {
+    paddingHorizontal: 24,
+  },
+  showsHorizontalScrollIndicator: false,
+  horizontal: true,
+})``;
 
 export const User = {
   Box,
