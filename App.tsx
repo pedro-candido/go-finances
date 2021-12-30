@@ -1,4 +1,6 @@
 import React from 'react';
+import { StatusBar } from 'react-native';
+
 import { Container } from './App.styles';
 import Dashboard from './src/screens/Dashboard';
 import { ThemeProvider } from 'styled-components';
@@ -27,6 +29,7 @@ export default function App() {
   return (
     <ThemeProvider theme={theme}>
       <Container>
+        <StatusBar barStyle={'light-content'} />
         <Dashboard />
       </Container>
     </ThemeProvider>
