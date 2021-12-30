@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Header, User } from './styles';
+import { Container, Header, User, Icon } from './styles';
 
 const Dashboard = () => {
   return (
@@ -13,6 +13,7 @@ const Dashboard = () => {
               <User.UserName>Pedro</User.UserName>
             </User.Info>
           </User.Box>
+          <Icon name="power" />
         </User.Wrapper>
       </Header>
     </Container>
