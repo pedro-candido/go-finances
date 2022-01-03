@@ -14,6 +14,7 @@ import {
 } from '@expo-google-fonts/poppins';
 
 import AppLoading from 'expo-app-loading';
+import Register from './src/screens/Register';
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -30,7 +31,7 @@ export default function App() {
     <ThemeProvider theme={theme}>
       <Container>
         <StatusBar barStyle={'light-content'} />
-        <Dashboard />
+        <Register />
       </Container>
     </ThemeProvider>
   );
