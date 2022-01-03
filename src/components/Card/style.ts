@@ -2,10 +2,16 @@ import styled from 'styled-components/native';
 import { Feather } from '@expo/vector-icons';
 import { RFValue } from 'react-native-responsive-fontsize';
 
-const Amount = styled.Text`
+interface IAmountProps {
+  type: 'positive' | 'negative';
+}
+
+const Amount = styled.Text<IAmountProps>`
   margin-top: ${RFValue(2)}px;
   margin-bottom: ${RFValue(17)}px;
   font-family: ${({ theme }) => theme.fonts.regular400};
+  color: ${({ type, theme }) =>
+    type === 'positive' ? theme.colors.light.success : theme.colors.light.attention};
 
   font-size: ${RFValue(20)}px;
 `;

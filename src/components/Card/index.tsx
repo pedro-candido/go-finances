@@ -1,17 +1,37 @@
 import React from 'react';
 import { Item } from './style';
 
-const Card = () => {
+interface ICategoryProps {
+  name: string;
+  icon: string;
+}
+
+export interface IData {
+  type: 'positive' | 'negative';
+  title: string;
+  amount: string;
+  category: ICategoryProps;
+  date: string;
+}
+
+interface ICardProps {
+  data: IData;
+}
+
+const Card = ({ data }: ICardProps) => {
   return (
     <Item.Box>
-      <Item.Title>Comida x</Item.Title>
-      <Item.Amount>R$ 20,50</Item.Amount>
+      <Item.Title>{data.title}</Item.Title>
+      <Item.Amount type={data.type}>
+        {data.type === 'negative' && '- '}
+        {data.amount}
+      </Item.Amount>
       <Item.Footer>
         <Item.Category>
-          <Item.Icon name="dollar-sign" />
-          <Item.CategoryText>Categoria</Item.CategoryText>
+          <Item.Icon name={data.category.icon} />
+          <Item.CategoryText>{data.category.name}</Item.CategoryText>
         </Item.Category>
-        <Item.CardDate>13/10/2021</Item.CardDate>
+        <Item.CardDate>{data.date}</Item.CardDate>
       </Item.Footer>
     </Item.Box>
   );
