@@ -1,7 +1,8 @@
 import React from 'react';
 import { View } from 'react-native';
 import HighlightCard from '../../components/HighlightCard';
-import { Container, Header, User, Icon, HighlightCards } from './styles';
+import List from '../../components/List';
+import { Container, Header, User, Icon, HighlightCards, Transactions } from './styles';
 
 const Dashboard = () => {
   return (
@@ -23,6 +24,9 @@ const Dashboard = () => {
         <HighlightCard iconType="down" text="Hello World" title="Saída" value="200.000" />
         <HighlightCard iconType="total" text="Hello World" title="Total" value="200.000" />
       </HighlightCards>
+      <Transactions>
+        <List />
+      </Transactions>
     </Container>
   );
 };
