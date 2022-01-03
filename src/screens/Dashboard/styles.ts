@@ -68,6 +68,12 @@ export const HighlightCards = styled.ScrollView.attrs({
   top: ${RFPercentage(20)}px;
 `;
 
+export const Transactions = styled.View`
+  margin-top: ${RFPercentage(8)}px;
+  flex: 1%;
+  padding: 0 24px;
+`;
+
 export const User = {
   Box,
   Info,

@@ -1,25 +1,66 @@
 import styled from 'styled-components/native';
 import { Feather } from '@expo/vector-icons';
+import { RFValue } from 'react-native-responsive-fontsize';
 
-const Footer = styled.View``;
+const Amount = styled.Text`
+  margin-top: ${RFValue(2)}px;
+  margin-bottom: ${RFValue(17)}px;
+  font-family: ${({ theme }) => theme.fonts.regular400};
 
-const Title = styled.Text``;
-
-const Amount = styled.Text``;
-
-const Text = styled.Text``;
-
-const Icon = styled(Feather)``;
+  font-size: ${RFValue(20)}px;
+`;
 
 const Box = styled.View`
-  padding: 16px 24px 14px 24px;
+  background-color: ${({ theme }) => theme.colors.shape};
+  padding: 17px 24px;
+  border-radius: 5px;
+  margin-bottom: 5%;
+`;
+
+const CardDate = styled.Text`
+  color: ${({ theme }) => theme.colors.text};
+  font-size: ${RFValue(14)}px;
+  font-family: ${({ theme }) => theme.fonts.regular400};
+`;
+
+const Category = styled.View`
+  flex-direction: row;
+  align-items: center;
+
+  font-family: ${({ theme }) => theme.fonts.regular400};
+`;
+
+const CategoryText = styled.Text`
+  margin-left: ${RFValue(17)}px;
+  color: ${({ theme }) => theme.colors.text};
+
+  font-size: ${RFValue(14)}px;
+  font-family: ${({ theme }) => theme.fonts.regular400};
+`;
+
+const Footer = styled.View`
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+const Icon = styled(Feather)`
+  color: ${({ theme }) => theme.colors.text};
+  font-size: ${RFValue(20)}px;
+`;
+
+const Title = styled.Text`
+  font-size: ${RFValue(14)}px;
+  font-family: ${({ theme }) => theme.fonts.regular400};
 `;
 
 export const Item = {
-  Box,
-  Title,
   Amount,
-  Text,
-  Icon,
+  Box,
+  Category,
+  CategoryText,
+  CardDate,
   Footer,
+  Icon,
+  Title,
 };
