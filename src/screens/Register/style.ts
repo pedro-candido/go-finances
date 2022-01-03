@@ -22,7 +22,11 @@ export const Title = styled.Text`
   font-family: ${({ theme }) => theme.fonts.regular400};
 `;
 
+export const Fields = styled.View``;
+
 export const Form = styled.View`
   flex: 1;
   padding: 24px;
+
+  justify-content: space-between;
 `;
