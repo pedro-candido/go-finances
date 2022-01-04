@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import { Container, Header, Title, Form, Fields, TransactionTypeContainer } from './style';
+import { Container, Form, Fields, TransactionTypeContainer } from './style';
+
+import Header from '../../components/Header';
 
 import Input from '../../components/Form/Input';
 import Button from '../../components/Form/Button';
 import TransactionTypeButton from '../../components/Form/TransactionTypeButton';
-import { View } from 'react-native';
 
 const Register = () => {
   const [transactionTypeButton, setTransactionTypeButton] = useState('');
@@ -15,9 +16,7 @@ const Register = () => {
 
   return (
     <Container>
-      <Header>
-        <Title>Criar conta</Title>
-      </Header>
+      <Header title={'Cadastro'} />
 
       <Form>
         <Fields>
