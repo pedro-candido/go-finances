@@ -20,4 +20,5 @@ export const TransactionTypeContainer = styled.View`
   flex-direction: row;
   justify-content: space-between;
   width: 100%;
+  margin-bottom: 8px;
 `;
