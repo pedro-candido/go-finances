@@ -4,11 +4,18 @@ import { Modal } from 'react-native';
 
 import Header from '../../components/Header';
 
-import Input from '../../components/Form/Input';
 import Button from '../../components/Form/Button';
 import TransactionTypeButton from '../../components/Form/TransactionTypeButton';
 import CategorySelectButton from '../../components/Form/CategorySelectButton';
 import CategorySelect from '../CategorySelect';
+import InputForm from '../../components/Form/InputForm';
+import { useForm } from 'react-hook-form';
+import { categories } from '../../utils/categories';
+
+interface FormProps {
+  amount: string;
+  name: string;
+}
 
 const Register = () => {
   const [transactionTypeButton, setTransactionTypeButton] = useState('');
@@ -18,11 +25,24 @@ const Register = () => {
   });
   const [isModalVisible, setIsModalVisible] = useState(false);
 
+  const { control, handleSubmit } = useForm();
+
   const handleShowModal = () => setIsModalVisible(true);
   const handleCloseModal = () => setIsModalVisible(false);
 
   const handlePressTypeButton = (type: 'up' | 'down') => {
     setTransactionTypeButton(type);
+  };
+
+  const handleRegister = (form: FormProps) => {
+    const data = {
+      name: form.name,
+      amount: form.amount,
+      transactionType: transactionTypeButton,
+      category: category.key,
+    };
+
+    console.log(data);
   };
 
   return (
@@ -31,8 +51,8 @@ const Register = () => {
 
       <Form>
         <Fields>
-          <Input placeholder="Name" />
-          <Input placeholder="Price" />
+          <InputForm control={control} name="name" placeholder="Nome" />
+          <InputForm control={control} name="amount" placeholder="Preço" />
 
           <TransactionTypeContainer>
             <TransactionTypeButton
@@ -60,7 +80,7 @@ const Register = () => {
           </Modal>
         </Fields>
 
-        <Button title="Enviar" />
+        <Button onPress={handleSubmit(handleRegister)} title="Enviar" />
       </Form>
     </Container>
   );
