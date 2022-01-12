@@ -2,14 +2,15 @@ import React from 'react';
 import { Control, Controller } from 'react-hook-form';
 import { TextInputProps } from 'react-native';
 import Input from '../Input';
-import { Container } from './style';
+import { Container, Error } from './style';
 
 interface InputFormProps extends TextInputProps {
   control: Control;
   name: string;
+  error: string;
 }
 
-const InputForm = ({ control, name, ...rest }: InputFormProps) => {
+const InputForm = ({ control, name, error, ...rest }: InputFormProps) => {
   return (
     <Container>
       <Controller
@@ -19,6 +20,8 @@ const InputForm = ({ control, name, ...rest }: InputFormProps) => {
           <Input onChangeText={onChange} value={value} {...rest} />
         )}
       />
+
+      {error && <Error>{error}</Error>}
     </Container>
   );
 };
