@@ -9,7 +9,6 @@ export const Container = styled(TextInput)`
   font-size: 14px;
   width: 100%;
 
-  margin-bottom: 18px;
   padding: 16px 18px;
 
   border-radius: 5px;
