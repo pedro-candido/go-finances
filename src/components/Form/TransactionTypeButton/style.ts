@@ -1,4 +1,4 @@
-import { RectButton } from 'react-native';
+import { RectButton } from 'react-native-gesture-handler';
 import styled, { css } from 'styled-components/native';
 
 import { Feather } from '@expo/vector-icons';
