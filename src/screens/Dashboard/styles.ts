@@ -3,6 +3,7 @@ import { RFPercentage, RFValue } from 'react-native-responsive-fontsize';
 import { Feather } from '@expo/vector-icons';
 
 import { getStatusBarHeight } from 'react-native-iphone-x-helper';
+import { BorderlessButton } from 'react-native-gesture-handler';
 
 export const Container = styled.View`
   background-color: ${({ theme }) => theme.colors.background};
@@ -67,6 +68,8 @@ export const HighlightCards = styled.ScrollView.attrs({
   position: absolute;
   top: ${RFPercentage(20)}px;
 `;
+
+export const Logout = styled(BorderlessButton)``;
 
 export const Transactions = styled.View`
   margin-top: ${RFPercentage(8)}px;

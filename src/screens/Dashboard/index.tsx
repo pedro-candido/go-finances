@@ -2,7 +2,7 @@ import React from 'react';
 import { View } from 'react-native';
 import HighlightCard from '../../components/HighlightCard';
 import List from '../../components/List';
-import { Container, Header, User, Icon, HighlightCards, Transactions } from './styles';
+import { Container, Header, User, Icon, HighlightCards, Transactions, Logout } from './styles';
 
 const Dashboard = () => {
   return (
@@ -16,7 +16,9 @@ const Dashboard = () => {
               <User.UserName>Pedro</User.UserName>
             </User.Info>
           </User.Box>
-          <Icon name="power" />
+          <Logout>
+            <Icon name="power" />
+          </Logout>
         </User.Wrapper>
       </Header>
       <HighlightCards>

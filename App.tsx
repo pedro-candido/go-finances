@@ -16,6 +16,7 @@ import {
 import AppLoading from 'expo-app-loading';
 import Register from './src/screens/Register';
 import CategorySelect from './src/screens/CategorySelect';
+import Routes from './src/routes/app.routes';
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -32,7 +33,7 @@ export default function App() {
     <ThemeProvider theme={theme}>
       <Container>
         <StatusBar barStyle={'light-content'} />
-        <Register />
+        <Routes />
       </Container>
     </ThemeProvider>
   );

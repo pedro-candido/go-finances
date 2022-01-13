@@ -1,9 +1,9 @@
-import { TouchableOpacity } from 'react-native';
+import { RectButton } from 'react-native';
 import { getBottomSpace } from 'react-native-iphone-x-helper';
 import { RFValue } from 'react-native-responsive-fontsize';
 import styled from 'styled-components/native';
 
-export const Container = styled(TouchableOpacity)`
+export const Container = styled(RectButton)`
   background-color: ${({ theme }) => theme.colors.light.secondary};
   width: 100%;
 
