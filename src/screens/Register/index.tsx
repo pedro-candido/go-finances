@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Alert, Keyboard, Modal, TouchableWithoutFeedback } from 'react-native';
 import { useForm } from 'react-hook-form';
 
@@ -17,6 +17,7 @@ import InputForm from '../../components/Form/InputForm';
 import CategorySelect from '../CategorySelect';
 
 import { categories } from '../../utils/categories';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 interface FormProps {
   amount: string;
@@ -51,7 +52,9 @@ const Register = () => {
     setTransactionTypeButton(type);
   };
 
-  const handleRegister = (form: FormProps) => {
+  const handleRegister = async (form: FormProps) => {
+    const dataKey = '@gofinances:transactions';
+
     if (!transactionTypeButton)
       return Alert.alert(
         'Opa, parece que faltou algo',
@@ -67,7 +70,30 @@ const Register = () => {
       transactionType: transactionTypeButton,
       category: category.key,
     };
+
+    try {
+      await AsyncStorage.setItem(dataKey, JSON.stringify(data));
+      Alert.alert(
+        'Boa',
+        data.transactionType === 'up'
+          ? 'Seu dindin recebido foi cadastrado com sucesso'
+          : 'Seu dindin gasto foi cadastrado com sucesso',
+      );
+    } catch (err) {
+      Alert.alert('Oxi', 'Parece que algo de errado aconteceu...');
+    }
   };
+
+  useEffect(() => {
+    const dataKey = '@gofinances:transactions';
+
+    const getTransactions = async (dataKey: string) => {
+      const transactions = await AsyncStorage.getItem(dataKey);
+      console.log(transactions);
+    };
+
+    getTransactions(dataKey);
+  }, []);
 
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
