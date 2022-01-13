@@ -1,14 +1,14 @@
 import styled from 'styled-components/native';
 
 import { Feather } from '@expo/vector-icons';
-import { TouchableOpacity } from 'react-native';
+import { RectButton } from 'react-native';
 import { RFValue } from 'react-native-responsive-fontsize';
 
 interface InputTextProps {
   category: string;
 }
 
-export const Container = styled(TouchableOpacity)`
+export const Container = styled(RectButton)`
   margin-top: 8px;
   font-size: ${RFValue(14)}px;
   font-family: ${({ theme }) => theme.fonts.regular400};

@@ -1,4 +1,4 @@
-import { TouchableOpacity } from 'react-native';
+import { RectButton } from 'react-native';
 import styled, { css } from 'styled-components/native';
 
 import { Feather } from '@expo/vector-icons';
@@ -12,7 +12,7 @@ interface TypeButtonProps extends TypeProps {
   isActive: boolean;
 }
 
-export const Container = styled(TouchableOpacity)<TypeButtonProps>`
+export const Container = styled(RectButton)<TypeButtonProps>`
   flex-direction: row;
   align-items: center;
   border-color: ${({ theme }) => theme.colors.text};
