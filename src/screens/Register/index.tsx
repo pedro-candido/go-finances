@@ -16,7 +16,7 @@ import InputForm from '../../components/Form/InputForm';
 
 import CategorySelect from '../CategorySelect';
 
-import { categories } from '../../utils/categories';
+// import { categories } from '../../utils/categories';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 interface FormProps {
@@ -64,7 +64,7 @@ const Register = () => {
     if (category.key === 'category')
       return Alert.alert('Opa, parece que faltou algo', 'Você não selecionou a categoria');
 
-    const data = {
+    const newTransaction = {
       name: form.name,
       amount: form.amount,
       transactionType: transactionTypeButton,
@@ -72,10 +72,15 @@ const Register = () => {
     };
 
     try {
-      await AsyncStorage.setItem(dataKey, JSON.stringify(data));
+      const data = await AsyncStorage.getItem(dataKey);
+      const currentData = data ? JSON.parse(data) : [];
+
+      const dataFormatted = [...currentData, newTransaction];
+
+      await AsyncStorage.setItem(dataKey, JSON.stringify(dataFormatted));
       Alert.alert(
         'Boa',
-        data.transactionType === 'up'
+        newTransaction.transactionType === 'up'
           ? 'Seu dindin recebido foi cadastrado com sucesso'
           : 'Seu dindin gasto foi cadastrado com sucesso',
       );
@@ -93,6 +98,12 @@ const Register = () => {
     };
 
     getTransactions(dataKey);
+
+    // const removeAll = async () => {
+    //   await AsyncStorage.removeItem(dataKey);
+    // };
+
+    // removeAll();
   }, []);
 
   return (
