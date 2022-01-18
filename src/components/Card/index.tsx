@@ -8,7 +8,7 @@ interface ICategoryProps {
 
 export interface IData {
   type: 'positive' | 'negative';
-  title: string;
+  name: string;
   amount: string;
   category: ICategoryProps;
   date: string;
@@ -21,7 +21,7 @@ interface ICardProps {
 const Card = ({ data }: ICardProps) => {
   return (
     <Item.Box>
-      <Item.Title>{data.title}</Item.Title>
+      <Item.Title>{data.name}</Item.Title>
       <Item.Amount type={data.type}>
         {data.type === 'negative' && '- '}
         {data.amount}

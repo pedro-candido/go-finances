@@ -40,6 +40,7 @@ const Register = () => {
   const {
     control,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm({
     resolver: yupResolver(scheme),
@@ -50,6 +51,15 @@ const Register = () => {
 
   const handlePressTypeButton = (type: 'up' | 'down') => {
     setTransactionTypeButton(type);
+  };
+
+  const resetFields = () => {
+    reset();
+    setCategory({
+      key: 'category',
+      name: 'Categoria',
+    });
+    setTransactionTypeButton('');
   };
 
   const handleRegister = async (form: FormProps) => {
@@ -69,6 +79,7 @@ const Register = () => {
       amount: form.amount,
       transactionType: transactionTypeButton,
       category: category.key,
+      date: new Date(),
     };
 
     try {
@@ -78,6 +89,9 @@ const Register = () => {
       const dataFormatted = [...currentData, newTransaction];
 
       await AsyncStorage.setItem(dataKey, JSON.stringify(dataFormatted));
+
+      resetFields();
+
       Alert.alert(
         'Boa',
         newTransaction.transactionType === 'up'
